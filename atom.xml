@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-01-05T03:22:16.298Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Homebrew 软件包管理器</title>
+    <link href="http://example.com/2021/01/05/homebrew/"/>
+    <id>http://example.com/2021/01/05/homebrew/</id>
+    <published>2021-01-05T03:20:44.000Z</published>
+    <updated>2021-01-05T03:22:16.298Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;  Homebrew是 macOS（或 Linux）缺失的软件包的管理器。它是一款Mac</summary>
+        
+      
+    
+    
+    
+    
+    <category term="MacBook" scheme="http://example.com/tags/MacBook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacBook 优化设置</title>
+    <link href="http://example.com/2020/12/30/macbookpro-settings/"/>
+    <id>http://example.com/2020/12/30/macbookpro-settings/</id>
+    <published>2020-12-30T03:36:02.000Z</published>
+    <updated>2021-01-05T02:43:23.324Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、Mac触摸板手势设置&quot;&gt;&lt;a href=&quot;#一、Mac触摸板手势设置&quot; class=&quot;headerlink&quot; title=&quot;一、Mac触摸板手势设置&quot;&gt;&lt;/a&gt;一、Mac触摸板手势设置&lt;/h3&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="MacBook" scheme="http://example.com/tags/MacBook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2020/12/20/hello-world/"/>
+    <id>http://example.com/2020/12/20/hello-world/</id>
+    <published>2020-12-20T03:36:02.000Z</published>
+    <updated>2021-01-05T02:39:57.031Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
