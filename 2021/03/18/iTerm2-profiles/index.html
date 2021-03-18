@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    MacBook 优化设置 |  Hexo
+    iTerm2 终端利器 |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,7 +45,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-macbookpro-settings"
+  id="post-iTerm2-profiles"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -56,22 +56,22 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  MacBook 优化设置
+  iTerm2 终端利器
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/12/30/macbookpro-settings/" class="article-date">
-  <time datetime="2020-12-30T03:36:02.000Z" itemprop="datePublished">2020-12-30</time>
+      <a href="/2021/03/18/iTerm2-profiles/" class="article-date">
+  <time datetime="2021-03-18T06:57:56.000Z" itemprop="datePublished">2021-03-18</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">59</span>
+            <span class="post-count">975</span>
         </span>
     </span>
 
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -97,20 +97,92 @@
        
   <p><strong>目录</strong></p>
 <p>[toc]</p>
-<h3 id="一、Mac触摸板手势设置"><a href="#一、Mac触摸板手势设置" class="headerlink" title="一、Mac触摸板手势设置"></a>一、Mac触摸板手势设置</h3><p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.01.png" alt="系统偏好设置">  </p>
-<br/>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>iTerm2是Terminal的替代品，是iTerm的后继产品。它适用于MacOS 10.14或更高版本的Mac。<br>官网地址：<a target="_blank" rel="noopener" href="https://iterm2.com/">https://iterm2.com/</a><br>最终效果图如下：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.01.png" alt="iTerm2效果图">  </p>
+<h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><ul>
+<li>通过 Homebrew 安装  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 搜索 iTerm2 软件包信息</span></span><br><span class="line">brew search iterm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 iTerm2</span></span><br><span class="line">brew install iterm2</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>点击：系统偏好设置 &gt; 辅助功能 &gt; 指针控制 &gt; 触摸板选项 &gt; 启用三指拖移<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.02.png" alt="点击辅助功能"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.03.png" alt="指针控制 &gt; 触摸板选项"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.04.png" alt="启用三指拖移">  </li>
-</ol>
-<br/>
 
-<ol start="2">
-<li>点击：系统偏好设置 &gt; 触摸板<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.05.png" alt="点击触摸板"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.06.png" alt="光标与点按"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.07.png" alt="滚动缩放"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.08.png" alt="更多手势">  </li>
-</ol>
-<br/>
+<h3 id="二、优化"><a href="#二、优化" class="headerlink" title="二、优化"></a>二、优化</h3><h5 id="1-安装-Oh-my-zsh："><a href="#1-安装-Oh-my-zsh：" class="headerlink" title="1. 安装 Oh my zsh："></a>1. 安装 Oh my zsh：</h5><p>Oh my zsh 开源地址：<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a>  </p>
+<ul>
+<li>开始安装  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装命令和安装完成后的截图：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.02.png" alt="Oh my zsh 安装">  </li>
+</ul>
+<h5 id="2-安装-PowerLine"><a href="#2-安装-PowerLine" class="headerlink" title="2. 安装 PowerLine"></a>2. 安装 PowerLine</h5><p>PowerLine 官网地址：<a target="_blank" rel="noopener" href="http://powerline.readthedocs.io/en/latest/installation.html">http://powerline.readthedocs.io/en/latest/installation.html</a>  </p>
+<ul>
+<li>开始安装  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">pip install powerline-status --user</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果提示：zsh: command not found: pip。则需要先安装 pip；再安装 PowerLine  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">sudo easy_install pip</span><br></pre></td></tr></table></figure>
 
-<h3 id="二、待补充"><a href="#二、待补充" class="headerlink" title="二、待补充"></a>二、待补充</h3> 
+<h5 id="3-安装-PowerFonts-字体"><a href="#3-安装-PowerFonts-字体" class="headerlink" title="3. 安装 PowerFonts 字体"></a>3. 安装 PowerFonts 字体</h5><p>PowerFonts 开源地址：<a target="_blank" rel="noopener" href="https://github.com/powerline/fonts.git">https://github.com/powerline/fonts.git</a>  </p>
+<ul>
+<li>开始安装<br>安装字体库需要首先将项目git clone至本地，然后执行源码中的install.sh。<br>新建 MacConfig 文件夹（后续软件相关的配置都可以放到这个目录中）再新建 iTerm2 配置目录  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建配置文件目录</span></span><br><span class="line">mkdir ~/MacConfig/iTerm2</span><br><span class="line"><span class="comment"># 进入配置目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/MacConfig/iTerm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 PowerFonts 字体</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br><span class="line"><span class="comment"># 安装 PowerFonts 字体</span></span><br><span class="line">sh ~/MacConfig/iTerm2/fonts/install.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置 iTerm2 的字体<br>iTerm2 -&gt; Preferences -&gt; Profiles -&gt; Text，在Font区域选中Change Font，然后找到Meslo LG字体。有L、M、S可选，看个人喜好：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.03.png" alt="设置 iTerm2 的字体">  </li>
+</ul>
+<h5 id="4-安装-agnoster-主题"><a href="#4-安装-agnoster-主题" class="headerlink" title="4. 安装 agnoster 主题"></a>4. 安装 agnoster 主题</h5><p>agnoster 主题开源地址：<a target="_blank" rel="noopener" href="https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor">https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor</a>  </p>
+<ul>
+<li>开始安装<br>安装主题需要首先将项目git clone至本地，然后执行源码中的install.sh。  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入配置目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/MacConfig/iTerm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 PowerFonts 字体</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor.git</span><br><span class="line"><span class="comment"># 安装 PowerFonts 字体</span></span><br><span class="line">sh ~/MacConfig/iTerm2/oh-my-zsh-agnoster-fcamblor/install.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>安装过程如图（执行上面的命令会将主题拷贝到oh my zsh的themes中）：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.04.png" alt="主题安装过程">  </p>
+</li>
+<li><p>更改主题配置（执行命令打开zshrc配置文件，将ZSH_THEME后面的字段改为agnoster）  </p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.05.png" alt="修改主题配置">  </p>
+<ul>
+<li>刷新配置（保存 .zshrc 配置退出、退出 vi 模式）:  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.06.png" alt="主题效果图">  </p>
+<h5 id="5-命令补全、安装高亮插件"><a href="#5-命令补全、安装高亮插件" class="headerlink" title="5. 命令补全、安装高亮插件"></a>5. 命令补全、安装高亮插件</h5><p>命令补全插件开源地址：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions.git">https://github.com/zsh-users/zsh-autosuggestions.git</a><br>高亮插件开源地址：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a>  </p>
+<ul>
+<li>开始安装<br>安装插件需要将项目git clone至插件目录，然后修改配置。  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入插件目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆命令补全插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆高亮插件至本地</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置</span></span><br><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
+<ul>
+<li>请务必保证插件顺序，zsh-syntax-highlighting必须在最后一个；保存、退出、刷新配置<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.07.png" alt="高亮插件修改">  </li>
+</ul>
+<h5 id="6-设置-iTerm2-配色及背景图"><a href="#6-设置-iTerm2-配色及背景图" class="headerlink" title="6. 设置 iTerm2 配色及背景图"></a>6. 设置 iTerm2 配色及背景图</h5><p>背景图地址：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15-ps2TQbox48Xxn63iGUog">https://pan.baidu.com/s/15-ps2TQbox48Xxn63iGUog</a>  密码：id9l  </p>
+<ul>
+<li><p>新建 Profile，并设置为默认 （修改之前先备份 Profile ）<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.08.png" alt="新建Profile">  </p>
+</li>
+<li><p>iTerm2 配色<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.09.png" alt="iTerm2 配色">  </p>
+</li>
+<li><p>iTerm2 背景图<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.10.png" alt="iTerm2 背景图">  </p>
+</li>
+<li><p>iTerm2 光标<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.11.png" alt="iTerm2 光标修改">  </p>
+</li>
+<li><p>iTerm2 标签页名称<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.12.png" alt="iTerm2 标签页名称">  </p>
+</li>
+</ul>
+<h5 id="7-设置悬浮窗口："><a href="#7-设置悬浮窗口：" class="headerlink" title="7. 设置悬浮窗口："></a>7. 设置悬浮窗口：</h5><p>使用场景：你正在全屏浏览器浏览网页，或者正在全屏编辑器写代码写文章之类的，突然想到了什么，或发现了什么，想快速打开终端，执行一两条命令（诸如打开文件、启动服务等），然后关闭。  </p>
+<ul>
+<li>创建新的 Profile 取名：HotKey Window<br>背景与窗口风格设置<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.13.png" alt="iTerm2 标签页名称">  </li>
+</ul>
+<blockquote>
+<p>Full-Width Top of Screen：让终端显示在屏幕顶部，并占满整个宽度。  </p>
+<p>Screen width Cursor : 这个和上面的参数搭配，用来判定哪个屏幕属于当前的工作空间，表示你的鼠标在哪，哪里就是当前的工作空间。</p>
+<p>Current Spce : 只显示在当前的工作空间，举个例子吧，假设你在当前屏幕打开了终端，你切换到下一个屏幕时它就不会跟到下一个屏幕。  </p>
+</blockquote>
+<ul>
+<li>设置 HotKey<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.14.png" alt="iTerm2 标签页名称">  </li>
+</ul>
+<p>更多设置参考：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/112383265?from_voters_page=true">https://zhuanlan.zhihu.com/p/112383265?from_voters_page=true</a></p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -180,7 +252,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/12/30/macbookpro-settings/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/18/iTerm2-profiles/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -193,19 +265,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2021/01/05/homebrew/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Homebrew 软件包管理器
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/12/20/hello-world/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">Homebrew 软件包管理器</div>
       </a>
     
   </nav>
