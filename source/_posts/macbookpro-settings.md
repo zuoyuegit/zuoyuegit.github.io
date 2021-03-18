@@ -4,6 +4,10 @@ date: 2020-12-30 11:36:02
 tags: MacBook
 ---
 
+**目录**
+
+[toc]
+
 ### 一、Mac触摸板手势设置  
 ![系统偏好设置](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-22%2018.05.01.png)  
 

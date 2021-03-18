@@ -105,7 +105,10 @@ theme: ayer
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/zuoyuegit/zuoyuegit.github.io.git
+#  repository: https://github.com/zuoyuegit/zuoyuegit.github.io.git
+  repository: 
+    github: git@github.com:zuoyuegit/zuoyuegit.github.io.git
+    gitee: git@gitee.com:zuoyuegitee/zuoyuegitee.git
   branch: master
 
 # hexo-generator-searchdb
