@@ -30,6 +30,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - ".github/**/*"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -92,6 +93,7 @@ pagination_dir: page
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
 include:
+  - ".github/**/*"
 exclude:
 ignore:
 
@@ -105,6 +107,7 @@ theme: ayer
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
+  ignore_hidden: false # 添加这个属性值为false
 #  repository: https://github.com/zuoyuegit/zuoyuegit.github.io.git
   repository: 
     github: https://github.com/zuoyuegit/zuoyuegit.github.io.git
