@@ -12,7 +12,7 @@ tags: MacBook
 iTerm2是Terminal的替代品，是iTerm的后继产品。它适用于MacOS 10.14或更高版本的Mac。 
 官网地址：<https://iterm2.com/>  
 最终效果图如下：  
-![iTerm2效果图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.01.png)  
+![iTerm2效果图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-26-27-99b2b1.png)  
 
 
 ### 一、安装  
@@ -41,7 +41,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 
 * 安装命令和安装完成后的截图：  
-![Oh my zsh 安装](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.02.png)  
+![Oh my zsh 安装](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-26-51-8c288a.png)  
 
 ##### 2. 安装 PowerLine  
 
@@ -83,7 +83,7 @@ sh ~/MacConfig/iTerm2/fonts/install.sh
 
 * 设置 iTerm2 的字体
 iTerm2 -> Preferences -> Profiles -> Text，在Font区域选中Change Font，然后找到Meslo LG字体。有L、M、S可选，看个人喜好：
-![设置 iTerm2 的字体](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.03.png)  
+![设置 iTerm2 的字体](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-15-ee3c76.png)  
 
 ##### 4. 安装 agnoster 主题  
 
@@ -103,7 +103,7 @@ sh ~/MacConfig/iTerm2/oh-my-zsh-agnoster-fcamblor/install.sh
 ```
 
 * 安装过程如图（执行上面的命令会将主题拷贝到oh my zsh的themes中）：  
-![主题安装过程](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.04.png)  
+![主题安装过程](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-25-0dfcec.png)  
 
 * 更改主题配置（执行命令打开zshrc配置文件，将ZSH_THEME后面的字段改为agnoster）  
 
@@ -111,7 +111,7 @@ sh ~/MacConfig/iTerm2/oh-my-zsh-agnoster-fcamblor/install.sh
 vi ~/.zshrc
 ```
 
-![修改主题配置](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.05.png)  
+![修改主题配置](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-40-13aa16.png)  
 
 * 刷新配置（保存 .zshrc 配置退出、退出 vi 模式）:  
 
@@ -119,7 +119,7 @@ vi ~/.zshrc
 source ~/.zshrc
 ```
 
-![主题效果图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.06.png)  
+![主题效果图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-28-05-001959.png)  
 
 
 
@@ -146,7 +146,7 @@ vi ~/.zshrc
 ```
 
 * 请务必保证插件顺序，zsh-syntax-highlighting必须在最后一个；保存、退出、刷新配置  
-![高亮插件修改](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.07.png)  
+![高亮插件修改](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-29-53-8df24b.png)  
 
 
 
@@ -156,19 +156,16 @@ vi ~/.zshrc
 背景图地址：<https://pan.baidu.com/s/15-ps2TQbox48Xxn63iGUog>  密码：id9l  
 
 * 新建 Profile，并设置为默认 （修改之前先备份 Profile ）
-![新建Profile](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.08.png)  
+![新建Profile](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-30-10-b141b4.png)  
 
 * iTerm2 配色
-![iTerm2 配色](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.09.png)  
-
+![iTerm2 配色](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-33-35-f36ae0.png)  
 * iTerm2 背景图
-![iTerm2 背景图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.10.png)  
-
+![iTerm2 背景图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-33-52-fbcb55.png)
 * iTerm2 光标
-![iTerm2 光标修改](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.11.png)  
-
+![iTerm2 光标修改](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-34-13-4b8190.png)  
 * iTerm2 标签页名称
-![iTerm2 标签页名称](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.12.png)  
+![iTerm2 标签页名称](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-34-22-c937e0.png)  
 
 
 
@@ -177,7 +174,7 @@ vi ~/.zshrc
 
 * 创建新的 Profile 取名：HotKey Window  
 背景与窗口风格设置  
-![iTerm2 标签页名称](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.13.png)  
+![iTerm2 标签页名称](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-34-32-c7bd24.png)
 
 > Full-Width Top of Screen：让终端显示在屏幕顶部，并占满整个宽度。  
 > 
@@ -186,7 +183,7 @@ vi ~/.zshrc
 > Current Spce : 只显示在当前的工作空间，举个例子吧，假设你在当前屏幕打开了终端，你切换到下一个屏幕时它就不会跟到下一个屏幕。  
 
 * 设置 HotKey
-![iTerm2 标签页名称](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/iShot2020-12-24%2016.26.14.png)  
+![iTerm2 标签页名称](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-34-42-bfd01a.png)
 
 
 更多设置参考：
