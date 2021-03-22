@@ -13,14 +13,14 @@ tags: MacBook
 
 <br/>
 
-1. 点击：系统偏好设置 > 辅助功能 > 指针控制 > 触摸板选项 > 启用三指拖移
+##### 1. 点击：系统偏好设置 > 辅助功能 > 指针控制 > 触摸板选项 > 启用三指拖移
 ![点击辅助功能](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-03-22-7b9fdb.png)  
 ![指针控制 > 触摸板选项](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-03-47-0d80f0.png)  
 ![启用三指拖移](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-27-428261.png)  
 
 <br/>
 
-2. 点击：系统偏好设置 > 触摸板  
+##### 2. 点击：系统偏好设置 > 触摸板  
 ![点击触摸板](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-40-a20c48.png)  
 ![光标与点按](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-54-a8b26f.png)  
 ![滚动缩放](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-05-37-d1f9a4.png)  

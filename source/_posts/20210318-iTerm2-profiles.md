@@ -16,8 +16,8 @@ iTerm2是Terminal的替代品，是iTerm的后继产品。它适用于MacOS 10.1
 
 
 ### 一、安装  
-* 通过 Homebrew 安装  
 
+* 通过 Homebrew 安装  
 ```bash
 # 搜索 iTerm2 软件包信息
 brew search iterm2
@@ -34,7 +34,6 @@ brew install iterm2
 Oh my zsh 开源地址：<https://github.com/ohmyzsh/ohmyzsh>  
 
 * 开始安装  
-
 ```bash
 # curl 安装方式
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -43,19 +42,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 * 安装命令和安装完成后的截图：  
 ![Oh my zsh 安装](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-26-51-8c288a.png)  
 
+
 ##### 2. 安装 PowerLine  
 
 PowerLine 官网地址：<http://powerline.readthedocs.io/en/latest/installation.html>  
 
 * 开始安装  
-
 ```bash
 # curl 安装方式
 pip install powerline-status --user
 ```
 
 * 如果提示：zsh: command not found: pip。则需要先安装 pip；再安装 PowerLine  
-
 ```bash
 # curl 安装方式
 sudo easy_install pip
@@ -68,7 +66,6 @@ PowerFonts 开源地址：<https://github.com/powerline/fonts.git>
 * 开始安装  
 安装字体库需要首先将项目git clone至本地，然后执行源码中的install.sh。  
 新建 MacConfig 文件夹（后续软件相关的配置都可以放到这个目录中）再新建 iTerm2 配置目录  
-
 ```bash
 # 新建配置文件目录
 mkdir ~/MacConfig/iTerm2
@@ -85,13 +82,13 @@ sh ~/MacConfig/iTerm2/fonts/install.sh
 iTerm2 -> Preferences -> Profiles -> Text，在Font区域选中Change Font，然后找到Meslo LG字体。有L、M、S可选，看个人喜好：
 ![设置 iTerm2 的字体](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-15-ee3c76.png)  
 
+
 ##### 4. 安装 agnoster 主题  
 
 agnoster 主题开源地址：<https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor>  
 
 * 开始安装  
 安装主题需要首先将项目git clone至本地，然后执行源码中的install.sh。  
-
 ```bash
 # 进入配置目录
 cd ~/MacConfig/iTerm2
@@ -106,7 +103,6 @@ sh ~/MacConfig/iTerm2/oh-my-zsh-agnoster-fcamblor/install.sh
 ![主题安装过程](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-25-0dfcec.png)  
 
 * 更改主题配置（执行命令打开zshrc配置文件，将ZSH_THEME后面的字段改为agnoster）  
-
 ```bash
 vi ~/.zshrc
 ```
@@ -114,14 +110,11 @@ vi ~/.zshrc
 ![修改主题配置](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-40-13aa16.png)  
 
 * 刷新配置（保存 .zshrc 配置退出、退出 vi 模式）:  
-
 ```bash
 source ~/.zshrc
 ```
 
 ![主题效果图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-28-05-001959.png)  
-
-
 
 
 ##### 5. 命令补全、安装高亮插件  
@@ -130,7 +123,6 @@ source ~/.zshrc
 
 * 开始安装  
 安装插件需要将项目git clone至插件目录，然后修改配置。  
-
 ```bash
 # 进入插件目录
 cd ~/.oh-my-zsh/custom/plugins/
@@ -149,8 +141,6 @@ vi ~/.zshrc
 ![高亮插件修改](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-29-53-8df24b.png)  
 
 
-
-
 ##### 6. 设置 iTerm2 配色及背景图  
 
 背景图地址：<https://pan.baidu.com/s/15-ps2TQbox48Xxn63iGUog>  密码：id9l  
@@ -160,13 +150,15 @@ vi ~/.zshrc
 
 * iTerm2 配色
 ![iTerm2 配色](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-33-35-f36ae0.png)  
+
 * iTerm2 背景图
 ![iTerm2 背景图](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-33-52-fbcb55.png)
+
 * iTerm2 光标
 ![iTerm2 光标修改](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-34-13-4b8190.png)  
+
 * iTerm2 标签页名称
 ![iTerm2 标签页名称](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-34-22-c937e0.png)  
-
 
 
 ##### 7. 设置悬浮窗口：
