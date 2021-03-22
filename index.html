@@ -145,7 +145,7 @@
     
     
     <article
-  id="post-iTerm2-profiles"
+  id="post-20210322-Hexo-github-gitee"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -156,7 +156,146 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/03/18/iTerm2-profiles/"
+  <a class="article-title" href="/2021/03/22/20210322-Hexo-github-gitee/"
+    >搭建自己的博客（Hexo + Github + Gitee）</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/03/22/20210322-Hexo-github-gitee/" class="article-date">
+  <time datetime="2021-03-22T03:13:46.000Z" itemprop="datePublished">2021-03-22</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><strong>目录</strong></p>
+<p>[toc]  </p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先要了解一下我们搭建博客要用到的框架（Hexo），Hexo是高效的静态站点生成框架，它基于Node.js。通过Hexo，我们可以直接使用Markdown语法来撰写博客。写完后只需执行两三条命令即可将生成的网页上传到你的github上。我们无需关心网页源代码的具体细节，只需要用心写好我们的博客内容就行。  </p>
+<h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h3><ul>
+<li>安装Git  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装Git</span></span><br><span class="line">brew install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证Git是否安装成功</span></span><br><span class="line"><span class="comment"># 若提示：git version *** (Apple Git-122.3)，当前git版本为Apple自带版本</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure></li>
+<li>切换Git版本  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看git启动路径</span></span><br><span class="line"><span class="comment"># 若提示：/usr/bin/git，则还是使用Apple自带版本，尝试重启iTerm2试试</span></span><br><span class="line"><span class="built_in">which</span> git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启后若还是Apple自带版本，手动切换</span></span><br><span class="line">vi .zshrc</span><br><span class="line"><span class="comment"># 新增配置；优先读取 /usr/local/bin 内的命令</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/usr/local/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="comment"># 刷新配置，使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="2-连接本地-Git-与-Github"><a href="#2-连接本地-Git-与-Github" class="headerlink" title="2. 连接本地 Git 与 Github"></a>2. 连接本地 Git 与 Github</h3><ul>
+<li><p>设置Git  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 设置 Github 账号</span></span><br><span class="line">git config --global user.name <span class="string">&quot;your_git_name&quot;</span></span><br><span class="line"><span class="comment"># 设置 Github 邮箱地址</span></span><br><span class="line">git config --global user.email <span class="string">&quot;your_email@example.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查Git账号、邮箱是否设置正确</span></span><br><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure></li>
+<li><p>生成公私钥SSH key  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查是否存在现有的 SSH 密钥</span></span><br><span class="line">ls -al ~/.ssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成公私钥 key</span></span><br><span class="line">ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br><span class="line">&gt;Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/zhangshan/.ssh/id_ed25519):</span><br><span class="line">&gt;Enter passphrase (empty <span class="keyword">for</span> no passphrase): <span class="comment"># 可选择输入安全密码</span></span><br><span class="line">&gt;Enter same passphrase again: <span class="comment"># 再次输入安全密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>将 SSH 密钥添加到 ssh-agent  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 ssh 代理</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span><br><span class="line">&gt;Agent pid 3487</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中</span></span><br><span class="line">ssh-add -K ~/.ssh/id_ed25519</span><br><span class="line">&gt;Enter passphrase <span class="keyword">for</span> /Users/zuoyue/.ssh/id_ed25519: <span class="comment"># 输入安全密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>新增 SSH 密钥到 GitHub 帐户  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看公钥，并复制</span></span><br><span class="line">cat ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-17-28-1402d1.png" alt="GitHub设置"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-17-45-4d1b11.png" alt="新建SSH Keys"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-17-55-6f870a.png" alt="上传SSH Keys"></p>
+</li>
+<li><p>验证是否成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 访问连接Github</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现以下提示，便是成功访问</span></span><br><span class="line">&gt;Hi your_git_name! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="3-创建GitHub博客项目"><a href="#3-创建GitHub博客项目" class="headerlink" title="3. 创建GitHub博客项目"></a>3. 创建GitHub博客项目</h3><ul>
+<li><p>创建博客项目<br>登录GitHub，点击右上角 + 号按钮<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-09-0f50c2.png" alt="创建博客仓库"></p>
+</li>
+<li><p>初始化博客项目<br>博客项目名称必须以  “用户名 + .gitgub.io”  结尾<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-16-7e22e0.png" alt="初始化博客仓库"></p>
+</li>
+<li><p>查看博客地址<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-26-decaa4.png" alt="点击设置博客"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-41-74612b.png" alt="设置博客主题002"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-50-24539b.png" alt="设置博客主题003"></p>
+</li>
+</ul>
+<h3 id="4-安装Node-js"><a href="#4-安装Node-js" class="headerlink" title="4. 安装Node.js"></a>4. 安装Node.js</h3><ul>
+<li>安装Node.js  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装Node.js</span></span><br><span class="line">brew install node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加国内镜像源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="5-安装Hexo"><a href="#5-安装Hexo" class="headerlink" title="5. 安装Hexo"></a>5. 安装Hexo</h3><ul>
+<li>安装 Hexo  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择合适的博客目录</span></span><br><span class="line">mkdir ~/myblog</span><br><span class="line"><span class="comment"># 进入博客目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/myblog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 Hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"><span class="comment"># 验证 Hexo 是否安装成功</span></span><br><span class="line">hexo -v</span><br><span class="line"><span class="comment"># 初始化 Hexo 目录</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="comment"># 安装必要的软件</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 打开本地服务器</span></span><br><span class="line">hexo s</span><br><span class="line"><span class="comment"># 输出提示，复制地址，打开 Hexo 网页</span></span><br><span class="line">&gt;INFO  Validating config</span><br><span class="line">&gt;INFO  Start processing</span><br><span class="line">&gt;INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></li>
+<li>连接本地博客与GitHub  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开博客根目录下的_config.yml文件</span></span><br><span class="line">vi ~/myblog/_config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改最后一行的配置；填写你的Github博客地址</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  repository: https://your_git_name.github.io/xxxx.github.io</span><br><span class="line">  branch: master</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 进入博客根目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/myblog</span><br><span class="line"><span class="comment"># 安装Git部署插件</span></span><br><span class="line">npm i hexo-deployer-git</span><br></pre></td></tr></table></figure></li>
+<li>创建 hexo 分支，用于保存博客源代码  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化博客</span></span><br><span class="line">git init</span><br><span class="line"><span class="comment"># 绑定远程仓库</span></span><br><span class="line">git remote add origin https://your_git_name.github.io/xxxx.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 hexo 分支</span></span><br><span class="line">git checkout -b hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加需要提交的内容</span></span><br><span class="line">git add .</span><br><span class="line"><span class="comment"># 提交备注</span></span><br><span class="line">git commit -m <span class="string">&quot;初始化博客&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送至远程分支</span></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure></li>
+<li>更换电脑后如何继续写博客  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新安装 Hexo ；并 clone 远程博客代码分支</span></span><br><span class="line">git <span class="built_in">clone</span> -b hexo https://your_git_name.github.io/xxxx.github.io ~/myblog</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="6-更换主题"><a href="#6-更换主题" class="headerlink" title="6. 更换主题"></a>6. 更换主题</h3><ul>
+<li>进入 Hexo 主题网站<br>推荐主题：<a target="_blank" rel="noopener" href="https://shen-yu.gitee.io/2019/ayer/">https://shen-yu.gitee.io/2019/ayer/</a><br>主题网站：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a></li>
+</ul>
+<h3 id="7-写文章、发布文章"><a href="#7-写文章、发布文章" class="headerlink" title="7. 写文章、发布文章"></a>7. 写文章、发布文章</h3><ul>
+<li>新建一篇博客  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一篇博客，title 便是博客名称</span></span><br><span class="line">hexo n <span class="string">&quot;title&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编写博客；推荐一款好用的MarkDown编辑工具 Typora</span></span><br><span class="line">vi ~/myblog/<span class="built_in">source</span>/_posts/title.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 打开本地服务器</span></span><br><span class="line">hexo s</span><br><span class="line"><span class="comment"># 发布博客</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态网页并发布博客（组合命令）</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></li>
+<li>Hexo  命令详解<br>参考官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands.html">https://hexo.io/zh-cn/docs/commands.html</a>  </li>
+</ul>
+<h3 id="7-Gitee-PicGo-Typora-搭建图床平台"><a href="#7-Gitee-PicGo-Typora-搭建图床平台" class="headerlink" title="7.   Gitee + PicGo + Typora 搭建图床平台"></a>7.   Gitee + PicGo + Typora 搭建图床平台</h3><h5 id="7-1-创建-Gitee-图片仓库"><a href="#7-1-创建-Gitee-图片仓库" class="headerlink" title="7-1. 创建 Gitee 图片仓库"></a>7-1. 创建 Gitee 图片仓库</h5><ul>
+<li><p>在gitee上创建一个仓库，用来存放图片，仓库必须是公开的。<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-10-b47d70.png" alt="创建图片仓库01"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-17-bc2834.png" alt="创建图片仓库02"></p>
+</li>
+<li><p>创建私人令牌。<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-24-d15a47.png" alt="创建私人令牌01"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-32-0e3673.png" alt="创建私人令牌02"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-39-4f4882.png" alt="创建私人令牌03"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-47-828933.png" alt="创建私人令牌04"></p>
+</li>
+</ul>
+<h5 id="7-2-安装-PicGo"><a href="#7-2-安装-PicGo" class="headerlink" title="7-2. 安装 PicGo"></a>7-2. 安装 PicGo</h5><ul>
+<li><p>安装 PicGo  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install picgo</span><br></pre></td></tr></table></figure></li>
+<li><p>为 PicGo 安装 Gitee图床 插件<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-55-433b7b.png" alt="安装 Gitee图床 插件01"></p>
+</li>
+<li><p>设置 Gitee图床插件<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-20-07-c1340a.png" alt="安装 Gitee图床 插件02"></p>
+</li>
+</ul>
+<h5 id="7-2-安装-Typora"><a href="#7-2-安装-Typora" class="headerlink" title="7-2. 安装 Typora"></a>7-2. 安装 Typora</h5><ul>
+<li>安装 Typora  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install typora</span><br></pre></td></tr></table></figure></li>
+<li>为 Typora 配置 PicGo 插件<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-20-13-dd0852.png" alt="为 Typora 配置 PicGo 插件01">  </li>
+</ul>
+<h3 id="8-博客相关优化设置"><a href="#8-博客相关优化设置" class="headerlink" title="8.   博客相关优化设置"></a>8.   博客相关优化设置</h3><h5 id="8-1-PicGo-插件库"><a href="#8-1-PicGo-插件库" class="headerlink" title="8-1. PicGo 插件库"></a>8-1. PicGo 插件库</h5><p>插件库地址：<a target="_blank" rel="noopener" href="https://github.com/PicGo/Awesome-PicGo">https://github.com/PicGo/Awesome-PicGo</a>  </p>
+<h5 id="8-2-github、gitee代码同时推送"><a href="#8-2-github、gitee代码同时推送" class="headerlink" title="8-2. github、gitee代码同时推送"></a>8-2. github、gitee代码同时推送</h5><ul>
+<li>修改代码仓库 .git 文件夹中的 config 文件  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .git/config</span><br></pre></td></tr></table></figure></li>
+<li>新增仓库地址<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-53-43-6c0ab9.png" alt="新增仓库地址">  </li>
+</ul>
+<h5 id="8-3-博客同时发布到-github、gitee"><a href="#8-3-博客同时发布到-github、gitee" class="headerlink" title="8-3. 博客同时发布到 github、gitee"></a>8-3. 博客同时发布到 github、gitee</h5><ul>
+<li><p>修改 博客目录下的 _config 配置文件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi _config</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-58-27-9e2a74.png" alt="新增git仓库地址">  </p>
+</li>
+<li><p>执行博客发布命令  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="8-4-使用Hexo设置Gitee自动部署时需要特别配置Hexo"><a href="#8-4-使用Hexo设置Gitee自动部署时需要特别配置Hexo" class="headerlink" title="8-4. 使用Hexo设置Gitee自动部署时需要特别配置Hexo"></a>8-4. 使用Hexo设置Gitee自动部署时需要特别配置Hexo</h5><p>配置参考地址：<a target="_blank" rel="noopener" href="https://github.com/yanglbme/gitee-pages-action/issues/34">https://github.com/yanglbme/gitee-pages-action/issues/34</a>  </p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning/" rel="tag">learning</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-20210318-iTerm2-profiles"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/03/18/20210318-iTerm2-profiles/"
     >iTerm2 终端利器</a> 
 </h2>
  
@@ -164,7 +303,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/03/18/iTerm2-profiles/" class="article-date">
+      <a href="/2021/03/18/20210318-iTerm2-profiles/" class="article-date">
   <time datetime="2021-03-18T06:57:56.000Z" itemprop="datePublished">2021-03-18</time>
 </a>    
     </div>
@@ -175,61 +314,46 @@
 <p>[toc]</p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>iTerm2是Terminal的替代品，是iTerm的后继产品。它适用于MacOS 10.14或更高版本的Mac。<br>官网地址：<a target="_blank" rel="noopener" href="https://iterm2.com/">https://iterm2.com/</a><br>最终效果图如下：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-26-27-99b2b1.png" alt="iTerm2效果图">  </p>
 <h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><ul>
-<li>通过 Homebrew 安装  </li>
+<li>通过 Homebrew 安装  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 搜索 iTerm2 软件包信息</span></span><br><span class="line">brew search iterm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 iTerm2</span></span><br><span class="line">brew install iterm2</span><br></pre></td></tr></table></figure>
+
+
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 搜索 iTerm2 软件包信息</span></span><br><span class="line">brew search iterm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 iTerm2</span></span><br><span class="line">brew install iterm2</span><br></pre></td></tr></table></figure>
-
-
 <h3 id="二、优化"><a href="#二、优化" class="headerlink" title="二、优化"></a>二、优化</h3><h5 id="1-安装-Oh-my-zsh："><a href="#1-安装-Oh-my-zsh：" class="headerlink" title="1. 安装 Oh my zsh："></a>1. 安装 Oh my zsh：</h5><p>Oh my zsh 开源地址：<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a>  </p>
 <ul>
-<li>开始安装  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<ul>
+<li>开始安装  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure></li>
 <li>安装命令和安装完成后的截图：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-26-51-8c288a.png" alt="Oh my zsh 安装">  </li>
 </ul>
 <h5 id="2-安装-PowerLine"><a href="#2-安装-PowerLine" class="headerlink" title="2. 安装 PowerLine"></a>2. 安装 PowerLine</h5><p>PowerLine 官网地址：<a target="_blank" rel="noopener" href="http://powerline.readthedocs.io/en/latest/installation.html">http://powerline.readthedocs.io/en/latest/installation.html</a>  </p>
 <ul>
-<li>开始安装  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">pip install powerline-status --user</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果提示：zsh: command not found: pip。则需要先安装 pip；再安装 PowerLine  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">sudo easy_install pip</span><br></pre></td></tr></table></figure>
+<li>开始安装  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">pip install powerline-status --user</span><br></pre></td></tr></table></figure></li>
+<li>如果提示：zsh: command not found: pip。则需要先安装 pip；再安装 PowerLine  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl 安装方式</span></span><br><span class="line">sudo easy_install pip</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 <h5 id="3-安装-PowerFonts-字体"><a href="#3-安装-PowerFonts-字体" class="headerlink" title="3. 安装 PowerFonts 字体"></a>3. 安装 PowerFonts 字体</h5><p>PowerFonts 开源地址：<a target="_blank" rel="noopener" href="https://github.com/powerline/fonts.git">https://github.com/powerline/fonts.git</a>  </p>
 <ul>
-<li>开始安装<br>安装字体库需要首先将项目git clone至本地，然后执行源码中的install.sh。<br>新建 MacConfig 文件夹（后续软件相关的配置都可以放到这个目录中）再新建 iTerm2 配置目录  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建配置文件目录</span></span><br><span class="line">mkdir ~/MacConfig/iTerm2</span><br><span class="line"><span class="comment"># 进入配置目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/MacConfig/iTerm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 PowerFonts 字体</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br><span class="line"><span class="comment"># 安装 PowerFonts 字体</span></span><br><span class="line">sh ~/MacConfig/iTerm2/fonts/install.sh</span><br></pre></td></tr></table></figure>
-<ul>
+<li>开始安装<br>安装字体库需要首先将项目git clone至本地，然后执行源码中的install.sh。<br>新建 MacConfig 文件夹（后续软件相关的配置都可以放到这个目录中）再新建 iTerm2 配置目录  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建配置文件目录</span></span><br><span class="line">mkdir ~/MacConfig/iTerm2</span><br><span class="line"><span class="comment"># 进入配置目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/MacConfig/iTerm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 PowerFonts 字体</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br><span class="line"><span class="comment"># 安装 PowerFonts 字体</span></span><br><span class="line">sh ~/MacConfig/iTerm2/fonts/install.sh</span><br></pre></td></tr></table></figure></li>
 <li>设置 iTerm2 的字体<br>iTerm2 -&gt; Preferences -&gt; Profiles -&gt; Text，在Font区域选中Change Font，然后找到Meslo LG字体。有L、M、S可选，看个人喜好：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-15-ee3c76.png" alt="设置 iTerm2 的字体">  </li>
 </ul>
 <h5 id="4-安装-agnoster-主题"><a href="#4-安装-agnoster-主题" class="headerlink" title="4. 安装 agnoster 主题"></a>4. 安装 agnoster 主题</h5><p>agnoster 主题开源地址：<a target="_blank" rel="noopener" href="https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor">https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor</a>  </p>
 <ul>
-<li>开始安装<br>安装主题需要首先将项目git clone至本地，然后执行源码中的install.sh。  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入配置目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/MacConfig/iTerm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 PowerFonts 字体</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor.git</span><br><span class="line"><span class="comment"># 安装 PowerFonts 字体</span></span><br><span class="line">sh ~/MacConfig/iTerm2/oh-my-zsh-agnoster-fcamblor/install.sh</span><br></pre></td></tr></table></figure>
-<ul>
+<li><p>开始安装<br>安装主题需要首先将项目git clone至本地，然后执行源码中的install.sh。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入配置目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/MacConfig/iTerm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 PowerFonts 字体</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor.git</span><br><span class="line"><span class="comment"># 安装 PowerFonts 字体</span></span><br><span class="line">sh ~/MacConfig/iTerm2/oh-my-zsh-agnoster-fcamblor/install.sh</span><br></pre></td></tr></table></figure></li>
 <li><p>安装过程如图（执行上面的命令会将主题拷贝到oh my zsh的themes中）：<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-25-0dfcec.png" alt="主题安装过程">  </p>
 </li>
 <li><p>更改主题配置（执行命令打开zshrc配置文件，将ZSH_THEME后面的字段改为agnoster）  </p>
-</li>
-</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-27-40-13aa16.png" alt="修改主题配置">  </p>
-<ul>
-<li>刷新配置（保存 .zshrc 配置退出、退出 vi 模式）:  </li>
-</ul>
+</li>
+<li><p>刷新配置（保存 .zshrc 配置退出、退出 vi 模式）:  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-28-05-001959.png" alt="主题效果图">  </p>
+</li>
+</ul>
 <h5 id="5-命令补全、安装高亮插件"><a href="#5-命令补全、安装高亮插件" class="headerlink" title="5. 命令补全、安装高亮插件"></a>5. 命令补全、安装高亮插件</h5><p>命令补全插件开源地址：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions.git">https://github.com/zsh-users/zsh-autosuggestions.git</a><br>高亮插件开源地址：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a>  </p>
 <ul>
-<li>开始安装<br>安装插件需要将项目git clone至插件目录，然后修改配置。  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入插件目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆命令补全插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆高亮插件至本地</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置</span></span><br><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
-<ul>
+<li>开始安装<br>安装插件需要将项目git clone至插件目录，然后修改配置。  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入插件目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆命令补全插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆高亮插件至本地</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置</span></span><br><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure></li>
 <li>请务必保证插件顺序，zsh-syntax-highlighting必须在最后一个；保存、退出、刷新配置<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/19/17-29-53-8df24b.png" alt="高亮插件修改">  </li>
 </ul>
 <h5 id="6-设置-iTerm2-配色及背景图"><a href="#6-设置-iTerm2-配色及背景图" class="headerlink" title="6. 设置 iTerm2 配色及背景图"></a>6. 设置 iTerm2 配色及背景图</h5><p>背景图地址：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15-ps2TQbox48Xxn63iGUog">https://pan.baidu.com/s/15-ps2TQbox48Xxn63iGUog</a>  密码：id9l  </p>
@@ -280,7 +404,7 @@
 
     
     <article
-  id="post-homebrew"
+  id="post-20210105-homebrew"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -291,7 +415,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/01/05/homebrew/"
+  <a class="article-title" href="/2021/01/05/20210105-homebrew/"
     >Homebrew 软件包管理器</a> 
 </h2>
  
@@ -299,7 +423,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/01/05/homebrew/" class="article-date">
+      <a href="/2021/01/05/20210105-homebrew/" class="article-date">
   <time datetime="2021-01-05T03:20:44.000Z" itemprop="datePublished">2021-01-05</time>
 </a>    
     </div>
@@ -315,49 +439,34 @@
 <hr>
 <h3 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h3><h5 id="1-官方安装命令："><a href="#1-官方安装命令：" class="headerlink" title="1. 官方安装命令："></a>1. 官方安装命令：</h5><p>官网地址：<a target="_blank" rel="noopener" href="https://brew.sh/index_zh-cn">https://brew.sh/index_zh-cn</a>  </p>
 <ul>
-<li>检查是否能够访问到 Homebrew 安装文件<br>浏览器输入：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</a><br>不能访问可通过 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a>首页；输入 raw.githubusercontent.com 查询到真实IP地址，并将其写到 host 文件中  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 host 文件</span></span><br><span class="line">sudo vi /etc/hosts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加IP映射地址</span></span><br><span class="line">199.232.96.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
-<ul>
-<li>将以下命令粘贴到终端 + 回车</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="string">&quot;)</span></span></span></span><br></pre></td></tr></table></figure>
+<li>检查是否能够访问到 Homebrew 安装文件<br>浏览器输入：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</a><br>不能访问可通过 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a>首页；输入 raw.githubusercontent.com 查询到真实IP地址，并将其写到 host 文件中  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 host 文件</span></span><br><span class="line">sudo vi /etc/hosts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加IP映射地址</span></span><br><span class="line">199.232.96.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure></li>
+<li>将以下命令粘贴到终端 + 回车<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="string">&quot;)</span></span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意：由于Homebrew资源在国外服务器上，由于网络原因下载速度会非常慢，很可能导致安装失败</strong>  </p>
 </blockquote>
+</li>
+</ul>
 <h5 id="2-国内镜像安装："><a href="#2-国内镜像安装：" class="headerlink" title="2. 国内镜像安装："></a>2. 国内镜像安装：</h5><p>中科院地址：<a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/homebrew/">https://mirror.tuna.tsinghua.edu.cn/help/homebrew/</a></p>
 <ul>
-<li>获取 brew_install.sh 文件，执行以下命令  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh &gt;&gt; brew_install.sh</span><br></pre></td></tr></table></figure>
-<ul>
+<li><p>获取 brew_install.sh 文件，执行以下命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh &gt;&gt; brew_install.sh</span><br></pre></td></tr></table></figure></li>
 <li><p>如果失败，直接获取之前的备份文件：<br>brew_install.sh 文件地址：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1OVz1SGkM2zIGro1HmBAAUA">https://pan.baidu.com/s/1OVz1SGkM2zIGro1HmBAAUA</a>   密码：jcu1  </p>
 </li>
 <li><p>找到刚刚获取的 brew_install.sh 文件，并修改文件中的镜像资源（以文本编辑方式打开）  </p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改为中科院镜像资源</span></span><br><span class="line"><span class="comment"># BREW_REPO=&quot;https://github.com/Homebrew/brew&quot;</span></span><br><span class="line">BREW_REPO=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>brew 运行时会从 Homebrew bottles 中拉取一个包，所以在运行前先设置个临时地址</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles</span><br></pre></td></tr></table></figure>
-<ul>
-<li>运行 brew_install.sh 以安装 Homebrew  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash brew_install.sh</span><br></pre></td></tr></table></figure>
-<ul>
-<li>当运行出现如下提示时：安装进度可能会卡在这一步并报错，原因是homebrew-core镜像也需要更改为中科院镜像  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Tapping homebrew/core Cloning into <span class="string">&#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core&#x27;</span>...</span><br></pre></td></tr></table></figure></li>
-<li>报错信息如下：  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: Failure <span class="keyword">while</span> executing; git <span class="built_in">clone</span> https://github.com/Homebrew/homebrew-core /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1 exited with 128.</span><br><span class="line">Error: Failure <span class="keyword">while</span> executing; /usr/<span class="built_in">local</span>/bin/brew tap homebrew/core exited with 1.</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此时需要更换 homebrew-core 为中科院镜像，打开终端输入命令：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1</span><br></pre></td></tr></table></figure></li>
-<li>关闭 Homebrew 自动更新  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 .zshrc 文件</span></span><br><span class="line">vi ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增配置</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_NO_AUTO_UPDATE=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-<ul>
-<li>最后更新 Homebrew  </li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改为中科院镜像资源</span></span><br><span class="line"><span class="comment"># BREW_REPO=&quot;https://github.com/Homebrew/brew&quot;</span></span><br><span class="line">BREW_REPO=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>brew 运行时会从 Homebrew bottles 中拉取一个包，所以在运行前先设置个临时地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles</span><br></pre></td></tr></table></figure></li>
+<li><p>运行 brew_install.sh 以安装 Homebrew  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash brew_install.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>当运行出现如下提示时：安装进度可能会卡在这一步并报错，原因是homebrew-core镜像也需要更改为中科院镜像  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Tapping homebrew/core Cloning into <span class="string">&#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core&#x27;</span>...</span><br></pre></td></tr></table></figure></li>
+<li><p>报错信息如下：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: Failure <span class="keyword">while</span> executing; git <span class="built_in">clone</span> https://github.com/Homebrew/homebrew-core /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1 exited with 128.</span><br><span class="line">Error: Failure <span class="keyword">while</span> executing; /usr/<span class="built_in">local</span>/bin/brew tap homebrew/core exited with 1.</span><br></pre></td></tr></table></figure></li>
+<li><p>此时需要更换 homebrew-core 为中科院镜像，打开终端输入命令：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1</span><br></pre></td></tr></table></figure></li>
+<li><p>关闭 Homebrew 自动更新  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 .zshrc 文件</span></span><br><span class="line">vi ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增配置</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_NO_AUTO_UPDATE=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure></li>
+<li><p>最后更新 Homebrew  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update -v</span><br></pre></td></tr></table></figure>
 <h5 id="3-安装Homebrew组件："><a href="#3-安装Homebrew组件：" class="headerlink" title="3. 安装Homebrew组件："></a>3. 安装Homebrew组件：</h5><table>
 <thead>
@@ -378,6 +487,8 @@
 <td>该组件可以使你安装内测和历史版本</td>
 </tr>
 </tbody></table>
+</li>
+</ul>
 <hr>
 <h3 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h3><h5 id="1-常用命令："><a href="#1-常用命令：" class="headerlink" title="1. 常用命令："></a>1. 常用命令：</h5><table>
 <thead>
@@ -573,7 +684,7 @@
 
     
     <article
-  id="post-macbookpro-settings"
+  id="post-20201230-macbookpro-settings"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -584,7 +695,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/12/30/macbookpro-settings/"
+  <a class="article-title" href="/2020/12/30/20201230-macbookpro-settings/"
     >MacBook 优化设置</a> 
 </h2>
  
@@ -592,7 +703,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/12/30/macbookpro-settings/" class="article-date">
+      <a href="/2020/12/30/20201230-macbookpro-settings/" class="article-date">
   <time datetime="2020-12-30T03:36:02.000Z" itemprop="datePublished">2020-12-30</time>
 </a>    
     </div>
@@ -604,14 +715,10 @@
 <h3 id="一、Mac触摸板手势设置"><a href="#一、Mac触摸板手势设置" class="headerlink" title="一、Mac触摸板手势设置"></a>一、Mac触摸板手势设置</h3><p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-03-07-6cc83c.png" alt="系统偏好设置">  </p>
 <br/>
 
-<ol>
-<li>点击：系统偏好设置 &gt; 辅助功能 &gt; 指针控制 &gt; 触摸板选项 &gt; 启用三指拖移<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-03-22-7b9fdb.png" alt="点击辅助功能"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-03-47-0d80f0.png" alt="指针控制 &gt; 触摸板选项"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-27-428261.png" alt="启用三指拖移">  </li>
-</ol>
+<h5 id="1-点击：系统偏好设置-gt-辅助功能-gt-指针控制-gt-触摸板选项-gt-启用三指拖移"><a href="#1-点击：系统偏好设置-gt-辅助功能-gt-指针控制-gt-触摸板选项-gt-启用三指拖移" class="headerlink" title="1. 点击：系统偏好设置 &gt; 辅助功能 &gt; 指针控制 &gt; 触摸板选项 &gt; 启用三指拖移"></a>1. 点击：系统偏好设置 &gt; 辅助功能 &gt; 指针控制 &gt; 触摸板选项 &gt; 启用三指拖移</h5><p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-03-22-7b9fdb.png" alt="点击辅助功能"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-03-47-0d80f0.png" alt="指针控制 &gt; 触摸板选项"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-27-428261.png" alt="启用三指拖移">  </p>
 <br/>
 
-<ol start="2">
-<li>点击：系统偏好设置 &gt; 触摸板<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-40-a20c48.png" alt="点击触摸板"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-54-a8b26f.png" alt="光标与点按"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-05-37-d1f9a4.png" alt="滚动缩放"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-06-00-c7aedf.png" alt="更多手势"></li>
-</ol>
+<h5 id="2-点击：系统偏好设置-gt-触摸板"><a href="#2-点击：系统偏好设置-gt-触摸板" class="headerlink" title="2. 点击：系统偏好设置 &gt; 触摸板"></a>2. 点击：系统偏好设置 &gt; 触摸板</h5><p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-40-a20c48.png" alt="点击触摸板"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-04-54-a8b26f.png" alt="光标与点按"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-05-37-d1f9a4.png" alt="滚动缩放"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2020/12/30/18-06-00-c7aedf.png" alt="更多手势"></p>
 <br/>
 
 <h3 id="二、待补充"><a href="#二、待补充" class="headerlink" title="二、待补充"></a>二、待补充</h3> 
@@ -636,7 +743,7 @@
 
     
     <article
-  id="post-hello-world"
+  id="post-20201220-hello-world"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -647,7 +754,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/12/20/hello-world/"
+  <a class="article-title" href="/2020/12/20/20201220-hello-world/"
     >Hello World</a> 
 </h2>
  
@@ -655,7 +762,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/12/20/hello-world/" class="article-date">
+      <a href="/2020/12/20/20201220-hello-world/" class="article-date">
   <time datetime="2020-12-20T03:36:02.000Z" itemprop="datePublished">2020-12-20</time>
 </a>    
     </div>

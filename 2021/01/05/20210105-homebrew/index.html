@@ -45,7 +45,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-homebrew"
+  id="post-20210105-homebrew"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -63,7 +63,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/01/05/homebrew/" class="article-date">
+      <a href="/2021/01/05/20210105-homebrew/" class="article-date">
   <time datetime="2021-01-05T03:20:44.000Z" itemprop="datePublished">2021-01-05</time>
 </a>   
 <div class="word_count">
@@ -104,49 +104,34 @@
 <hr>
 <h3 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h3><h5 id="1-官方安装命令："><a href="#1-官方安装命令：" class="headerlink" title="1. 官方安装命令："></a>1. 官方安装命令：</h5><p>官网地址：<a target="_blank" rel="noopener" href="https://brew.sh/index_zh-cn">https://brew.sh/index_zh-cn</a>  </p>
 <ul>
-<li>检查是否能够访问到 Homebrew 安装文件<br>浏览器输入：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</a><br>不能访问可通过 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a>首页；输入 raw.githubusercontent.com 查询到真实IP地址，并将其写到 host 文件中  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 host 文件</span></span><br><span class="line">sudo vi /etc/hosts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加IP映射地址</span></span><br><span class="line">199.232.96.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
-<ul>
-<li>将以下命令粘贴到终端 + 回车</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="string">&quot;)</span></span></span></span><br></pre></td></tr></table></figure>
+<li>检查是否能够访问到 Homebrew 安装文件<br>浏览器输入：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</a><br>不能访问可通过 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a>首页；输入 raw.githubusercontent.com 查询到真实IP地址，并将其写到 host 文件中  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 host 文件</span></span><br><span class="line">sudo vi /etc/hosts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加IP映射地址</span></span><br><span class="line">199.232.96.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure></li>
+<li>将以下命令粘贴到终端 + 回车<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="string">&quot;)</span></span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意：由于Homebrew资源在国外服务器上，由于网络原因下载速度会非常慢，很可能导致安装失败</strong>  </p>
 </blockquote>
+</li>
+</ul>
 <h5 id="2-国内镜像安装："><a href="#2-国内镜像安装：" class="headerlink" title="2. 国内镜像安装："></a>2. 国内镜像安装：</h5><p>中科院地址：<a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/homebrew/">https://mirror.tuna.tsinghua.edu.cn/help/homebrew/</a></p>
 <ul>
-<li>获取 brew_install.sh 文件，执行以下命令  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh &gt;&gt; brew_install.sh</span><br></pre></td></tr></table></figure>
-<ul>
+<li><p>获取 brew_install.sh 文件，执行以下命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh &gt;&gt; brew_install.sh</span><br></pre></td></tr></table></figure></li>
 <li><p>如果失败，直接获取之前的备份文件：<br>brew_install.sh 文件地址：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1OVz1SGkM2zIGro1HmBAAUA">https://pan.baidu.com/s/1OVz1SGkM2zIGro1HmBAAUA</a>   密码：jcu1  </p>
 </li>
 <li><p>找到刚刚获取的 brew_install.sh 文件，并修改文件中的镜像资源（以文本编辑方式打开）  </p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改为中科院镜像资源</span></span><br><span class="line"><span class="comment"># BREW_REPO=&quot;https://github.com/Homebrew/brew&quot;</span></span><br><span class="line">BREW_REPO=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>brew 运行时会从 Homebrew bottles 中拉取一个包，所以在运行前先设置个临时地址</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles</span><br></pre></td></tr></table></figure>
-<ul>
-<li>运行 brew_install.sh 以安装 Homebrew  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash brew_install.sh</span><br></pre></td></tr></table></figure>
-<ul>
-<li>当运行出现如下提示时：安装进度可能会卡在这一步并报错，原因是homebrew-core镜像也需要更改为中科院镜像  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Tapping homebrew/core Cloning into <span class="string">&#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core&#x27;</span>...</span><br></pre></td></tr></table></figure></li>
-<li>报错信息如下：  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: Failure <span class="keyword">while</span> executing; git <span class="built_in">clone</span> https://github.com/Homebrew/homebrew-core /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1 exited with 128.</span><br><span class="line">Error: Failure <span class="keyword">while</span> executing; /usr/<span class="built_in">local</span>/bin/brew tap homebrew/core exited with 1.</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此时需要更换 homebrew-core 为中科院镜像，打开终端输入命令：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1</span><br></pre></td></tr></table></figure></li>
-<li>关闭 Homebrew 自动更新  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 .zshrc 文件</span></span><br><span class="line">vi ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增配置</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_NO_AUTO_UPDATE=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-<ul>
-<li>最后更新 Homebrew  </li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改为中科院镜像资源</span></span><br><span class="line"><span class="comment"># BREW_REPO=&quot;https://github.com/Homebrew/brew&quot;</span></span><br><span class="line">BREW_REPO=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>brew 运行时会从 Homebrew bottles 中拉取一个包，所以在运行前先设置个临时地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles</span><br></pre></td></tr></table></figure></li>
+<li><p>运行 brew_install.sh 以安装 Homebrew  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash brew_install.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>当运行出现如下提示时：安装进度可能会卡在这一步并报错，原因是homebrew-core镜像也需要更改为中科院镜像  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Tapping homebrew/core Cloning into <span class="string">&#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core&#x27;</span>...</span><br></pre></td></tr></table></figure></li>
+<li><p>报错信息如下：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: Failure <span class="keyword">while</span> executing; git <span class="built_in">clone</span> https://github.com/Homebrew/homebrew-core /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1 exited with 128.</span><br><span class="line">Error: Failure <span class="keyword">while</span> executing; /usr/<span class="built_in">local</span>/bin/brew tap homebrew/core exited with 1.</span><br></pre></td></tr></table></figure></li>
+<li><p>此时需要更换 homebrew-core 为中科院镜像，打开终端输入命令：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/<span class="built_in">local</span>/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1</span><br></pre></td></tr></table></figure></li>
+<li><p>关闭 Homebrew 自动更新  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 .zshrc 文件</span></span><br><span class="line">vi ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增配置</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_NO_AUTO_UPDATE=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure></li>
+<li><p>最后更新 Homebrew  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update -v</span><br></pre></td></tr></table></figure>
 <h5 id="3-安装Homebrew组件："><a href="#3-安装Homebrew组件：" class="headerlink" title="3. 安装Homebrew组件："></a>3. 安装Homebrew组件：</h5><table>
 <thead>
@@ -167,6 +152,8 @@
 <td>该组件可以使你安装内测和历史版本</td>
 </tr>
 </tbody></table>
+</li>
+</ul>
 <hr>
 <h3 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h3><h5 id="1-常用命令："><a href="#1-常用命令：" class="headerlink" title="1. 常用命令："></a>1. 常用命令：</h5><table>
 <thead>
@@ -410,7 +397,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/01/05/homebrew/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/01/05/20210105-homebrew/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -423,7 +410,7 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/03/18/iTerm2-profiles/" class="article-nav-link">
+      <a href="/2021/03/18/20210318-iTerm2-profiles/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -433,7 +420,7 @@
       </a>
     
     
-      <a href="/2020/12/30/macbookpro-settings/" class="article-nav-link">
+      <a href="/2020/12/30/20201230-macbookpro-settings/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">MacBook 优化设置</div>
       </a>

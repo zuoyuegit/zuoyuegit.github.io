@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    搭建自己的博客（Hexo + Github + Gitee） |  Hexo
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-20210322-Hexo-github-gitee"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  搭建自己的博客（Hexo + Github + Gitee）
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/03/22/20210322-Hexo-github-gitee/" class="article-date">
+  <time datetime="2021-03-22T03:13:46.000Z" itemprop="datePublished">2021-03-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">5 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><strong>目录</strong></p>
+<p>[toc]  </p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>首先要了解一下我们搭建博客要用到的框架（Hexo），Hexo是高效的静态站点生成框架，它基于Node.js。通过Hexo，我们可以直接使用Markdown语法来撰写博客。写完后只需执行两三条命令即可将生成的网页上传到你的github上。我们无需关心网页源代码的具体细节，只需要用心写好我们的博客内容就行。  </p>
+<h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h3><ul>
+<li>安装Git  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装Git</span></span><br><span class="line">brew install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证Git是否安装成功</span></span><br><span class="line"><span class="comment"># 若提示：git version *** (Apple Git-122.3)，当前git版本为Apple自带版本</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure></li>
+<li>切换Git版本  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看git启动路径</span></span><br><span class="line"><span class="comment"># 若提示：/usr/bin/git，则还是使用Apple自带版本，尝试重启iTerm2试试</span></span><br><span class="line"><span class="built_in">which</span> git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启后若还是Apple自带版本，手动切换</span></span><br><span class="line">vi .zshrc</span><br><span class="line"><span class="comment"># 新增配置；优先读取 /usr/local/bin 内的命令</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/usr/local/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="comment"># 刷新配置，使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="2-连接本地-Git-与-Github"><a href="#2-连接本地-Git-与-Github" class="headerlink" title="2. 连接本地 Git 与 Github"></a>2. 连接本地 Git 与 Github</h3><ul>
+<li><p>设置Git  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 设置 Github 账号</span></span><br><span class="line">git config --global user.name <span class="string">&quot;your_git_name&quot;</span></span><br><span class="line"><span class="comment"># 设置 Github 邮箱地址</span></span><br><span class="line">git config --global user.email <span class="string">&quot;your_email@example.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查Git账号、邮箱是否设置正确</span></span><br><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure></li>
+<li><p>生成公私钥SSH key  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查是否存在现有的 SSH 密钥</span></span><br><span class="line">ls -al ~/.ssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成公私钥 key</span></span><br><span class="line">ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br><span class="line">&gt;Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/zhangshan/.ssh/id_ed25519):</span><br><span class="line">&gt;Enter passphrase (empty <span class="keyword">for</span> no passphrase): <span class="comment"># 可选择输入安全密码</span></span><br><span class="line">&gt;Enter same passphrase again: <span class="comment"># 再次输入安全密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>将 SSH 密钥添加到 ssh-agent  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 ssh 代理</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span><br><span class="line">&gt;Agent pid 3487</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中</span></span><br><span class="line">ssh-add -K ~/.ssh/id_ed25519</span><br><span class="line">&gt;Enter passphrase <span class="keyword">for</span> /Users/zuoyue/.ssh/id_ed25519: <span class="comment"># 输入安全密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>新增 SSH 密钥到 GitHub 帐户  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看公钥，并复制</span></span><br><span class="line">cat ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-17-28-1402d1.png" alt="GitHub设置"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-17-45-4d1b11.png" alt="新建SSH Keys"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-17-55-6f870a.png" alt="上传SSH Keys"></p>
+</li>
+<li><p>验证是否成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 访问连接Github</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现以下提示，便是成功访问</span></span><br><span class="line">&gt;Hi your_git_name! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="3-创建GitHub博客项目"><a href="#3-创建GitHub博客项目" class="headerlink" title="3. 创建GitHub博客项目"></a>3. 创建GitHub博客项目</h3><ul>
+<li><p>创建博客项目<br>登录GitHub，点击右上角 + 号按钮<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-09-0f50c2.png" alt="创建博客仓库"></p>
+</li>
+<li><p>初始化博客项目<br>博客项目名称必须以  “用户名 + .gitgub.io”  结尾<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-16-7e22e0.png" alt="初始化博客仓库"></p>
+</li>
+<li><p>查看博客地址<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-26-decaa4.png" alt="点击设置博客"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-41-74612b.png" alt="设置博客主题002"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-18-50-24539b.png" alt="设置博客主题003"></p>
+</li>
+</ul>
+<h3 id="4-安装Node-js"><a href="#4-安装Node-js" class="headerlink" title="4. 安装Node.js"></a>4. 安装Node.js</h3><ul>
+<li>安装Node.js  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装Node.js</span></span><br><span class="line">brew install node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加国内镜像源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="5-安装Hexo"><a href="#5-安装Hexo" class="headerlink" title="5. 安装Hexo"></a>5. 安装Hexo</h3><ul>
+<li>安装 Hexo  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择合适的博客目录</span></span><br><span class="line">mkdir ~/myblog</span><br><span class="line"><span class="comment"># 进入博客目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/myblog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 Hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"><span class="comment"># 验证 Hexo 是否安装成功</span></span><br><span class="line">hexo -v</span><br><span class="line"><span class="comment"># 初始化 Hexo 目录</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="comment"># 安装必要的软件</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 打开本地服务器</span></span><br><span class="line">hexo s</span><br><span class="line"><span class="comment"># 输出提示，复制地址，打开 Hexo 网页</span></span><br><span class="line">&gt;INFO  Validating config</span><br><span class="line">&gt;INFO  Start processing</span><br><span class="line">&gt;INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></li>
+<li>连接本地博客与GitHub  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开博客根目录下的_config.yml文件</span></span><br><span class="line">vi ~/myblog/_config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改最后一行的配置；填写你的Github博客地址</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  repository: https://your_git_name.github.io/xxxx.github.io</span><br><span class="line">  branch: master</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 进入博客根目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/myblog</span><br><span class="line"><span class="comment"># 安装Git部署插件</span></span><br><span class="line">npm i hexo-deployer-git</span><br></pre></td></tr></table></figure></li>
+<li>创建 hexo 分支，用于保存博客源代码  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化博客</span></span><br><span class="line">git init</span><br><span class="line"><span class="comment"># 绑定远程仓库</span></span><br><span class="line">git remote add origin https://your_git_name.github.io/xxxx.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 hexo 分支</span></span><br><span class="line">git checkout -b hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加需要提交的内容</span></span><br><span class="line">git add .</span><br><span class="line"><span class="comment"># 提交备注</span></span><br><span class="line">git commit -m <span class="string">&quot;初始化博客&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送至远程分支</span></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure></li>
+<li>更换电脑后如何继续写博客  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新安装 Hexo ；并 clone 远程博客代码分支</span></span><br><span class="line">git <span class="built_in">clone</span> -b hexo https://your_git_name.github.io/xxxx.github.io ~/myblog</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="6-更换主题"><a href="#6-更换主题" class="headerlink" title="6. 更换主题"></a>6. 更换主题</h3><ul>
+<li>进入 Hexo 主题网站<br>推荐主题：<a target="_blank" rel="noopener" href="https://shen-yu.gitee.io/2019/ayer/">https://shen-yu.gitee.io/2019/ayer/</a><br>主题网站：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a></li>
+</ul>
+<h3 id="7-写文章、发布文章"><a href="#7-写文章、发布文章" class="headerlink" title="7. 写文章、发布文章"></a>7. 写文章、发布文章</h3><ul>
+<li>新建一篇博客  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一篇博客，title 便是博客名称</span></span><br><span class="line">hexo n <span class="string">&quot;title&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编写博客；推荐一款好用的MarkDown编辑工具 Typora</span></span><br><span class="line">vi ~/myblog/<span class="built_in">source</span>/_posts/title.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 打开本地服务器</span></span><br><span class="line">hexo s</span><br><span class="line"><span class="comment"># 发布博客</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态网页并发布博客（组合命令）</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></li>
+<li>Hexo  命令详解<br>参考官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands.html">https://hexo.io/zh-cn/docs/commands.html</a>  </li>
+</ul>
+<h3 id="7-Gitee-PicGo-Typora-搭建图床平台"><a href="#7-Gitee-PicGo-Typora-搭建图床平台" class="headerlink" title="7.   Gitee + PicGo + Typora 搭建图床平台"></a>7.   Gitee + PicGo + Typora 搭建图床平台</h3><h5 id="7-1-创建-Gitee-图片仓库"><a href="#7-1-创建-Gitee-图片仓库" class="headerlink" title="7-1. 创建 Gitee 图片仓库"></a>7-1. 创建 Gitee 图片仓库</h5><ul>
+<li><p>在gitee上创建一个仓库，用来存放图片，仓库必须是公开的。<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-10-b47d70.png" alt="创建图片仓库01"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-17-bc2834.png" alt="创建图片仓库02"></p>
+</li>
+<li><p>创建私人令牌。<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-24-d15a47.png" alt="创建私人令牌01"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-32-0e3673.png" alt="创建私人令牌02"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-39-4f4882.png" alt="创建私人令牌03"><br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-47-828933.png" alt="创建私人令牌04"></p>
+</li>
+</ul>
+<h5 id="7-2-安装-PicGo"><a href="#7-2-安装-PicGo" class="headerlink" title="7-2. 安装 PicGo"></a>7-2. 安装 PicGo</h5><ul>
+<li><p>安装 PicGo  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install picgo</span><br></pre></td></tr></table></figure></li>
+<li><p>为 PicGo 安装 Gitee图床 插件<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-19-55-433b7b.png" alt="安装 Gitee图床 插件01"></p>
+</li>
+<li><p>设置 Gitee图床插件<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-20-07-c1340a.png" alt="安装 Gitee图床 插件02"></p>
+</li>
+</ul>
+<h5 id="7-2-安装-Typora"><a href="#7-2-安装-Typora" class="headerlink" title="7-2. 安装 Typora"></a>7-2. 安装 Typora</h5><ul>
+<li>安装 Typora  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install typora</span><br></pre></td></tr></table></figure></li>
+<li>为 Typora 配置 PicGo 插件<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-20-13-dd0852.png" alt="为 Typora 配置 PicGo 插件01">  </li>
+</ul>
+<h3 id="8-博客相关优化设置"><a href="#8-博客相关优化设置" class="headerlink" title="8.   博客相关优化设置"></a>8.   博客相关优化设置</h3><h5 id="8-1-PicGo-插件库"><a href="#8-1-PicGo-插件库" class="headerlink" title="8-1. PicGo 插件库"></a>8-1. PicGo 插件库</h5><p>插件库地址：<a target="_blank" rel="noopener" href="https://github.com/PicGo/Awesome-PicGo">https://github.com/PicGo/Awesome-PicGo</a>  </p>
+<h5 id="8-2-github、gitee代码同时推送"><a href="#8-2-github、gitee代码同时推送" class="headerlink" title="8-2. github、gitee代码同时推送"></a>8-2. github、gitee代码同时推送</h5><ul>
+<li>修改代码仓库 .git 文件夹中的 config 文件  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .git/config</span><br></pre></td></tr></table></figure></li>
+<li>新增仓库地址<br><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-53-43-6c0ab9.png" alt="新增仓库地址">  </li>
+</ul>
+<h5 id="8-3-博客同时发布到-github、gitee"><a href="#8-3-博客同时发布到-github、gitee" class="headerlink" title="8-3. 博客同时发布到 github、gitee"></a>8-3. 博客同时发布到 github、gitee</h5><ul>
+<li><p>修改 博客目录下的 _config 配置文件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi _config</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-58-27-9e2a74.png" alt="新增git仓库地址">  </p>
+</li>
+<li><p>执行博客发布命令  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="8-4-使用Hexo设置Gitee自动部署时需要特别配置Hexo"><a href="#8-4-使用Hexo设置Gitee自动部署时需要特别配置Hexo" class="headerlink" title="8-4. 使用Hexo设置Gitee自动部署时需要特别配置Hexo"></a>8-4. 使用Hexo设置Gitee自动部署时需要特别配置Hexo</h5><p>配置参考地址：<a target="_blank" rel="noopener" href="https://github.com/yanglbme/gitee-pages-action/issues/34">https://github.com/yanglbme/gitee-pages-action/issues/34</a>  </p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/22/20210322-Hexo-github-gitee/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning/" rel="tag">learning</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/03/18/20210318-iTerm2-profiles/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">iTerm2 终端利器</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2021
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

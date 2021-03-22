@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-19T09:59:58.950Z</updated>
+  <updated>2021-03-22T03:28:27.830Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>搭建自己的博客（Hexo + Github + Gitee）</title>
+    <link href="http://example.com/2021/03/22/20210322-Hexo-github-gitee/"/>
+    <id>http://example.com/2021/03/22/20210322-Hexo-github-gitee/</id>
+    <published>2021-03-22T03:13:46.000Z</published>
+    <updated>2021-03-22T03:28:27.830Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[toc]  &lt;/p&gt;
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="learning" scheme="http://example.com/tags/learning/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iTerm2 终端利器</title>
-    <link href="http://example.com/2021/03/18/iTerm2-profiles/"/>
-    <id>http://example.com/2021/03/18/iTerm2-profiles/</id>
+    <link href="http://example.com/2021/03/18/20210318-iTerm2-profiles/"/>
+    <id>http://example.com/2021/03/18/20210318-iTerm2-profiles/</id>
     <published>2021-03-18T06:57:56.000Z</published>
-    <updated>2021-03-19T09:59:58.950Z</updated>
+    <updated>2021-03-22T03:39:07.830Z</updated>
     
     
       
@@ -43,10 +68,10 @@
   
   <entry>
     <title>Homebrew 软件包管理器</title>
-    <link href="http://example.com/2021/01/05/homebrew/"/>
-    <id>http://example.com/2021/01/05/homebrew/</id>
+    <link href="http://example.com/2021/01/05/20210105-homebrew/"/>
+    <id>http://example.com/2021/01/05/20210105-homebrew/</id>
     <published>2021-01-05T03:20:44.000Z</published>
-    <updated>2021-03-18T07:02:10.998Z</updated>
+    <updated>2021-03-22T03:41:41.418Z</updated>
     
     
       
@@ -68,10 +93,10 @@
   
   <entry>
     <title>MacBook 优化设置</title>
-    <link href="http://example.com/2020/12/30/macbookpro-settings/"/>
-    <id>http://example.com/2020/12/30/macbookpro-settings/</id>
+    <link href="http://example.com/2020/12/30/20201230-macbookpro-settings/"/>
+    <id>http://example.com/2020/12/30/20201230-macbookpro-settings/</id>
     <published>2020-12-30T03:36:02.000Z</published>
-    <updated>2021-03-19T10:07:47.637Z</updated>
+    <updated>2021-03-22T03:45:07.280Z</updated>
     
     
       
@@ -93,10 +118,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2020/12/20/hello-world/"/>
-    <id>http://example.com/2020/12/20/hello-world/</id>
+    <link href="http://example.com/2020/12/20/20201220-hello-world/"/>
+    <id>http://example.com/2020/12/20/20201220-hello-world/</id>
     <published>2020-12-20T03:36:02.000Z</published>
-    <updated>2021-01-05T02:39:57.031Z</updated>
+    <updated>2021-01-05T06:10:03.482Z</updated>
     
     
       
