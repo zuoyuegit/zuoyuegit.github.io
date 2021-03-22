@@ -170,7 +170,7 @@ vi ~/myblog/_config.yml
 deploy:
   type: 'git'
   repository: https://your_git_name.github.io/xxxx.github.io
-  branch: master
+  branch: master # 博客发布后生成html页面的分支
   
 # 进入博客根目录
 cd ~/myblog
@@ -185,7 +185,7 @@ git init
 # 绑定远程仓库
 git remote add origin https://your_git_name.github.io/xxxx.github.io
 
-# 创建 hexo 分支
+# 创建 hexo 分支 博客操作都是在此分支
 git checkout -b hexo
 
 # 添加需要提交的内容
@@ -289,7 +289,7 @@ brew install typora
 
 * 修改代码仓库 .git 文件夹中的 config 文件  
 ```bash
-vi .git/config
+vi ~/myblog/.git/config
 ```
 
 * 新增仓库地址
@@ -300,7 +300,7 @@ vi .git/config
 
 * 修改 博客目录下的 _config 配置文件  
 ```bash
-vi _config
+vi ~/myblog/_config
 ```
 
 ![新增git仓库地址](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-58-27-9e2a74.png)  
@@ -314,8 +314,19 @@ hexo d -g
 ##### 8-4. 使用Hexo设置Gitee自动部署时需要特别配置Hexo  
 配置参考地址：https://github.com/yanglbme/gitee-pages-action/issues/34  
 
-配置内容如下：
+* 新增配置文件 sync.yml；配置文件在博客仓库 source\.github\workflows\ 目录下  
+```bash
+# 如果 source 目录下没有 .github 目录，则需要新建
+cd ~/myblog/source
+# 新建 .github 目录
+mkdir .github
+# 新建 .github 目录下的 workflows 目录
+mkdir .github/workflows
+# 新增配置文件
+vi .github/workflows/sync.yml
+```
 
+* 配置文件内容如下
 ```bash
 name: Sync
 
@@ -339,4 +350,34 @@ jobs:
           gitee-repo: gitee用户名/gitee仓库
           # 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）
           branch: master
+```
+
+* 在 github 仓库中设置上述配置文件中需要的参数
+> 进入 github 博客仓库，点击仓库的 Settings 按钮，找到左侧菜单栏中 secrets 选项  
+> GITEE_PASSWORD                   # Gitee账号的密码  
+> GITEE_RSA_PRIVATE_KEY       # id_rsa私钥   vi ~/.ssh/id_ed25519  
+![新增 secrets 参数](https://gitee.com/zuoyuegitee/pic/raw/master/blog/img/2021/03/21/22-59-52-827e06.png)
+
+
+* 修改博客仓库下的 _config.yml 配置  
+Hexo默认会忽略隐藏文件和文件夹（包括名称以下划线和 .开头的文件和文件夹，Hexo的_posts和_data等目录除外）。因此需要在后台仓库的_config.yml文件添加这样的配置才能把.github的目录也给带进来。
+```bash
+vi ~/myblog/_config
+
+# 搜索到 skip_render 属性并修改
+skip_render:
+  - ".github/**/*"
+
+# 搜索到 include 属性并修改
+include:
+  - ".github/**/*"
+
+# 找到 deploy 属性 新增 ignore_hidden 属性
+deploy:
+  type: git
+  ignore_hidden: false # 添加这个属性值为false
+  repository:
+    gitee: 你的 gitee 博客仓库地址
+    github: 你的 github 博客仓库地址
+  branch: master # 博客发布后生成html页面的分支
 ```

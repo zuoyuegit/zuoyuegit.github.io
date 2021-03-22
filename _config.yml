@@ -110,8 +110,8 @@ deploy:
   ignore_hidden: false # 添加这个属性值为false
 #  repository: https://github.com/zuoyuegit/zuoyuegit.github.io.git
   repository: 
-    github: https://github.com/zuoyuegit/zuoyuegit.github.io.git
     gitee: https://gitee.com/zuoyuegitee/zuoyuegitee.git
+    github: https://github.com/zuoyuegit/zuoyuegit.github.io.git
   branch: master
 
 # hexo-generator-searchdb
