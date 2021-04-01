@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-22T09:06:33.804Z</updated>
+  <updated>2021-03-30T08:25:32.145Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>搭建自己的博客（Hexo + Github + Gitee）</title>
-    <link href="http://example.com/2021/03/22/20210322-Hexo-github-gitee/"/>
-    <id>http://example.com/2021/03/22/20210322-Hexo-github-gitee/</id>
+    <title>Mac 搭建自己的博客（Hexo + Github + Gitee）</title>
+    <link href="http://example.com/2021/03/22/20210322-Mac-Hexo-github-gitee/"/>
+    <id>http://example.com/2021/03/22/20210322-Mac-Hexo-github-gitee/</id>
     <published>2021-03-22T03:13:46.000Z</published>
-    <updated>2021-03-22T09:06:33.804Z</updated>
+    <updated>2021-03-30T08:25:32.145Z</updated>
     
     
       
@@ -42,11 +42,11 @@
   </entry>
   
   <entry>
-    <title>iTerm2 终端利器</title>
-    <link href="http://example.com/2021/03/18/20210318-iTerm2-profiles/"/>
-    <id>http://example.com/2021/03/18/20210318-iTerm2-profiles/</id>
+    <title>Mac iTerm2 终端利器</title>
+    <link href="http://example.com/2021/03/18/20210318-Mac-iTerm2-profiles/"/>
+    <id>http://example.com/2021/03/18/20210318-Mac-iTerm2-profiles/</id>
     <published>2021-03-18T06:57:56.000Z</published>
-    <updated>2021-03-22T03:39:07.830Z</updated>
+    <updated>2021-03-30T08:25:23.646Z</updated>
     
     
       
@@ -67,11 +67,11 @@
   </entry>
   
   <entry>
-    <title>Homebrew 软件包管理器</title>
-    <link href="http://example.com/2021/01/05/20210105-homebrew/"/>
-    <id>http://example.com/2021/01/05/20210105-homebrew/</id>
+    <title>Mac Homebrew 软件包管理器</title>
+    <link href="http://example.com/2021/01/05/20210105-Mac-Homebrew/"/>
+    <id>http://example.com/2021/01/05/20210105-Mac-Homebrew/</id>
     <published>2021-01-05T03:20:44.000Z</published>
-    <updated>2021-03-22T03:41:41.418Z</updated>
+    <updated>2021-03-30T08:25:13.197Z</updated>
     
     
       
@@ -92,11 +92,11 @@
   </entry>
   
   <entry>
-    <title>MacBook 优化设置</title>
-    <link href="http://example.com/2020/12/30/20201230-macbookpro-settings/"/>
-    <id>http://example.com/2020/12/30/20201230-macbookpro-settings/</id>
+    <title>Mac 优化设置</title>
+    <link href="http://example.com/2020/12/30/20201230-Mac-settings/"/>
+    <id>http://example.com/2020/12/30/20201230-Mac-settings/</id>
     <published>2020-12-30T03:36:02.000Z</published>
-    <updated>2021-03-22T03:45:07.280Z</updated>
+    <updated>2021-03-30T08:25:06.243Z</updated>
     
     
       
